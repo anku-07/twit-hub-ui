@@ -13,6 +13,6 @@ export const endpoints = {
     getAllPosts: 'posts',
     createPost: '/posts/create',
     myPosts: 'posts/my-posts',
-    editPost: "posts"
+    editPost: 'posts',
   },
 };

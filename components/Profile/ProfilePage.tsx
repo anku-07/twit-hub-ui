@@ -50,7 +50,7 @@ const ProfilePage = () => {
   };
 
   const saveEditPost = (content: string) => {
- 
+
     setSelectedPostId('');
     setSelectedPostContent('');
   };
@@ -61,7 +61,7 @@ const ProfilePage = () => {
     setSelectedPostContent('');
   };
 
-  const handleDeletePost = (id: string) => {};
+  const handleDeletePost = (id: string) => { };
 
   if (isProfileLoading) return <Loader />;
 
@@ -118,10 +118,10 @@ const ProfilePage = () => {
             Joined{' '}
             {profileData?.data?.createdAt
               ? new Date(profileData.data.createdAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })
               : ''}
           </Typography>
         </Stack>
