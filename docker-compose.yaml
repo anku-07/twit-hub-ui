@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  #React Nextjs Node Service
+
+  node:
+    image: webskittersdocker/nvmnode22:latest
+
+    container_name: cyclesmart-tech-ui-NextJS
+
+    restart: unless-stopped
+
+    working_dir: /home/wtsadmin/myapp
+
+
+
+    volumes:
+      - ./:/home/wtsadmin/myapp
+
+    ports:
+      - '14323:14323'
+    command: >
+      sh -c "yarn start"
+
+#Docker Networks
+
+networks:
+  default:
+    external:
+      name: webskitters

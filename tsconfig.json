@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "@wtsreact/typescript-config/next.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "allowJs": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"],
+  "typeRoots": ["./node_modules/@types"]
+}

@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: next-js-new-structure
+  description: Next.js project with Material UI using new folder structure
+  annotations:
+    gitlab.com/project-slug: react-projects/next-js-new-structure
+spec:
+  type: website
+  lifecycle: development
+  owner: group:react-projects

@@ -1,0 +1,85 @@
+{
+  "name": "cyclesmart-tech-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev  -p 14323",
+    "build": "wts build next",
+    "start": "next start -p 14323",
+    "lint": "wts lint",
+    "prepare": "husky",
+    "postinstall": "yarn run prepare",
+    "eslint:fix": "npm run lint:fix",
+    "type-check": "tsc --noEmit",
+    "format": "wts format",
+    "pre-commit": "lint-staged && yarn run build",
+    "lint:fix": "wts lint --fix",
+    "migrate": "wts migrate",
+    "format:fix": "wts format --fix",
+    "prettier:fix": "npm run format:fix",
+    "check-types": "wts type-check"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.14.1",
+    "@hookform/resolvers": "^5.2.2",
+    "@mui/icons-material": "^7.3.2",
+    "@mui/material": "^7.3.5",
+    "@mui/material-nextjs": "^7.3.2",
+    "@mui/x-date-pickers": "^8.11.2",
+    "@reduxjs/toolkit": "^2.9.0",
+    "@tanstack/react-query": "^5.100.14",
+    "@types/js-cookie": "^3.0.6",
+    "axios": "^1.12.2",
+    "dayjs": "^1.11.18",
+    "eventemitter3": "^5.0.1",
+    "js-cookie": "^3.0.5",
+    "lottie-react": "^2.4.1",
+    "next": "16.0.1",
+    "next-progress": "^2.3.1",
+    "next-seo": "^6.8.0",
+    "react": "19.2.0",
+    "react-cookie": "^8.0.1",
+    "react-dom": "19.2.0",
+    "react-hook-form": "^7.62.0",
+    "react-hot-toast": "^2.6.0",
+    "react-redux": "^9.2.0",
+    "redux-persist": "^6.0.0",
+    "yup": "^1.7.0",
+    "zustand-x": "^6.1.2"
+  },
+  "devDependencies": {
+    "@types/minimatch": "^5.1.2",
+    "@types/node": "^22.8.1",
+    "@types/react-lottie": "^1.2.10",
+    "@types/react-slick": "^0.23.13",
+    "@wtsreact/eslint-config": "^1.2.0",
+    "@wtsreact/prettier-config": "^1.0.4",
+    "@wtsreact/scripts": "^1.0.6",
+    "@wtsreact/typescript-config": "^1.0.4",
+    "eslint": "^9.22.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.5.3",
+    "sass": "^1.80.4",
+    "typescript": "^5.8.2"
+  },
+  "lint-staged": {
+    "./*/**/*.{js,jsx,ts,tsx}": [
+      "npm run prettier:fix",
+      "npm run eslint:fix"
+    ],
+    "*.{json,md}": [
+      "npm run prettier:fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": "@wtsreact/prettier-config"
+}
