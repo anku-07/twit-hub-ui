@@ -11,7 +11,7 @@ const PostModal = ({ open, onClose }: PostModalProps) => {
   return (
     <MuiModalWrapper open={open} onClose={onClose} title='Post a Tweet'>
       <PostModalWrapper>
-        <CreatePostComponent />
+        <CreatePostComponent onSuccess={onClose} />
       </PostModalWrapper>
     </MuiModalWrapper>
   );

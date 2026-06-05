@@ -18,7 +18,11 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 
-const CreatePostComponent = () => {
+interface CreatePostComponentProps {
+  onSuccess?: () => void;
+}
+
+const CreatePostComponent = ({ onSuccess }: CreatePostComponentProps) => {
   const { data: profileData } = useProfile();
 
   const { mutate, isPending } = useCreatePost();
@@ -42,6 +46,7 @@ const CreatePostComponent = () => {
           toast.success('Post created successfully!');
           queryClient.invalidateQueries({ queryKey: ['posts'] });
           queryClient.invalidateQueries({ queryKey: ['my-posts'] });
+          onSuccess?.();
         },
         onError: () => {
           toast.error('Failed to create post');
