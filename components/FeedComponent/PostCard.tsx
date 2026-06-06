@@ -1,5 +1,6 @@
 'use client';
 
+import { useToggleLike } from '@/hooks/api/post/useToggleLike';
 import { useProfile } from '@/hooks/api/profile/useProfile';
 import { PostCardWrapper } from '@/styles/StyledComponents/PostCardWrapper';
 import GorkIcon from '@/ui/Icons/GorkIcon';
@@ -9,6 +10,7 @@ import {
   ChatBubbleOutline,
   DeleteOutline,
   EditOutlined,
+  Favorite,
   FavoriteBorder,
   MoreHoriz,
   Publish,
@@ -63,6 +65,7 @@ const formatPostTime = (timeStr: string) => {
 };
 
 export interface PostCardProps {
+  postId: string;
   avatar?: string;
   name: string;
   username: string;
@@ -71,7 +74,7 @@ export interface PostCardProps {
   images?: string[];
   replies?: string | number;
   reposts?: string | number;
-  likes?: string | number;
+  likes?: string[];
   views?: string | number;
   isVerified?: boolean;
   editOnClick?: () => void;
@@ -79,6 +82,7 @@ export interface PostCardProps {
 }
 
 const PostCard = ({
+  postId,
   avatar,
   name,
   username,
@@ -87,13 +91,15 @@ const PostCard = ({
   images = [],
   replies = 0,
   reposts = 0,
-  likes = 0,
+  likes,
   views = 0,
   isVerified = false,
   editOnClick,
   deleteOnClick,
 }: PostCardProps) => {
   const { data: profileData } = useProfile();
+  const { mutate: toggleLikePost } = useToggleLike();
+
   const [menuAnchorEl, setMenuAnchorEl] = useState<null | HTMLElement>(null);
   const isMenuOpen = Boolean(menuAnchorEl);
 
@@ -104,6 +110,14 @@ const PostCard = ({
   const handleMenuClose = () => {
     setMenuAnchorEl(null);
   };
+
+  const handleLike = () => {
+    toggleLikePost(postId);
+  };
+
+  const currentUser = profileData?.data?._id;
+
+  const isLiked = likes?.includes(currentUser);
 
   const isOwnPost = profileData?.data?.username === username;
 
@@ -175,10 +189,16 @@ const PostCard = ({
             <Button
               className='actionItem'
               aria-label='Like'
-              startIcon={<FavoriteBorder />}
+              startIcon={isLiked ? <Favorite sx={{ color: 'error.main' }} /> : <FavoriteBorder />}
               disableRipple
+              onClick={handleLike}
+              sx={
+                isLiked
+                  ? { color: 'error.main', '&.MuiButton-root': { color: 'error.main' } }
+                  : undefined
+              }
             >
-              {likes}
+              {likes?.length || 0}
             </Button>
             <Button
               className='actionItem'

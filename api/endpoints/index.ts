@@ -14,5 +14,6 @@ export const endpoints = {
     createPost: '/posts/create',
     myPosts: 'posts/my-posts',
     editPost: 'posts',
+    likePost: 'posts',
   },
 };

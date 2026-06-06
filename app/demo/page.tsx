@@ -20,7 +20,6 @@ const Demo = () => {
   });
   const passwordValue = watch('password');
 
-
   const onSubmit = (data: any) => {
     console.log(data);
 

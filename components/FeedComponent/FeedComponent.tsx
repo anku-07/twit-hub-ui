@@ -15,10 +15,12 @@ const FeedComponent = () => {
       {data?.allPosts?.map((post: PostData) => (
         <PostCard
           key={post._id}
+          postId={post._id}
           content={post.content}
-          name={post.author.name}
-          username={post.author.username}
+          name={post.author?.name}
+          username={post.author?.username}
           time={post.createdAt}
+          likes={post.likes}
         />
       ))}
     </FeedComponentWrapper>

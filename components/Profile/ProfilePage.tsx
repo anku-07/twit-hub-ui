@@ -148,10 +148,12 @@ const ProfilePage = () => {
         {myPostsData?.data?.map((post: PostData) => (
           <PostCard
             key={post._id}
+            postId={post._id}
             content={post.content}
             name={post.author.name}
             username={post.author.username}
             time={post.createdAt}
+            likes={post.likes}
             editOnClick={() => handleOpenEditPostModal(post._id, post.content)}
             deleteOnClick={() => handleDeletePost(post._id)}
           />

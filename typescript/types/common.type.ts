@@ -42,6 +42,7 @@ export type PostData = {
     name: string;
     username: string;
   };
+  likes: string[];
 };
 
 export {};

@@ -48,10 +48,10 @@ technical setup, routes, design rules, data model, or integration details change
 
 ## Routes And Pages
 
-| Route | Purpose | Status | Notes |
-| --- | --- | --- | --- |
-| `/` | [Homepage or main entry] | [Planned / In progress / Done] | [Notes] |
-| `/example` | [Page purpose] | [Planned / In progress / Done] | [Notes] |
+| Route      | Purpose                  | Status                         | Notes   |
+| ---------- | ------------------------ | ------------------------------ | ------- |
+| `/`        | [Homepage or main entry] | [Planned / In progress / Done] | [Notes] |
+| `/example` | [Page purpose]           | [Planned / In progress / Done] | [Notes] |
 
 ## UI And Design Direction
 
@@ -72,10 +72,10 @@ technical setup, routes, design rules, data model, or integration details change
 
 ## Components
 
-| Component | Location | Purpose | Reusable? | Notes |
-| --- | --- | --- | --- | --- |
+| Component         | Location         | Purpose        | Reusable?  | Notes                     |
+| ----------------- | ---------------- | -------------- | ---------- | ------------------------- |
 | `[ComponentName]` | `components/...` | [What it does] | [Yes / No] | [Props, states, variants] |
-| `[ComponentName]` | `ui/...` | [What it does] | [Yes / No] | [Props, states, variants] |
+| `[ComponentName]` | `ui/...`         | [What it does] | [Yes / No] | [Props, states, variants] |
 
 ## Data And Mocking
 
@@ -96,8 +96,8 @@ technical setup, routes, design rules, data model, or integration details change
 
 ## Integrations
 
-| Integration | Purpose | Config | Status | Notes |
-| --- | --- | --- | --- | --- |
+| Integration      | Purpose         | Config                    | Status                        | Notes   |
+| ---------------- | --------------- | ------------------------- | ----------------------------- | ------- |
 | `[Service name]` | [Why it exists] | [Env vars or config file] | [Planned / Active / Disabled] | [Notes] |
 
 ## Environment

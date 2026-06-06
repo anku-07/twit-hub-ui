@@ -10,6 +10,7 @@ export const PageSidebarWrapper = styled(Box)`
   padding: 12px;
   border-right: 1px solid ${({ theme }) => theme.palette.divider};
   background: ${({ theme }) => theme.palette.background.default};
+  overflow: auto;
 
   @media (max-width: 1199px) {
     width: 88px;
