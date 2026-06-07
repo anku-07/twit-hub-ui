@@ -29,6 +29,7 @@ import {
   Typography,
 } from '@mui/material';
 import dayjs from 'dayjs';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const formatPostTime = (timeStr: string) => {
@@ -66,6 +67,7 @@ const formatPostTime = (timeStr: string) => {
 
 export interface PostCardProps {
   postId: string;
+  userId:string;
   avatar?: string;
   name: string;
   username: string;
@@ -83,6 +85,7 @@ export interface PostCardProps {
 
 const PostCard = ({
   postId,
+  userId,
   avatar,
   name,
   username,
@@ -97,6 +100,10 @@ const PostCard = ({
   editOnClick,
   deleteOnClick,
 }: PostCardProps) => {
+
+
+  const router = useRouter();
+
   const { data: profileData } = useProfile();
   const { mutate: toggleLikePost } = useToggleLike();
 
@@ -115,14 +122,16 @@ const PostCard = ({
     toggleLikePost(postId);
   };
 
+  const handleProfileClick = () => {
+    router.push( `/profile/${userId}`);
+  }
+
   const currentUser = profileData?.data?._id;
-
   const isLiked = likes?.includes(currentUser);
-
   const isOwnPost = profileData?.data?.username === username;
 
   return (
-    <PostCardWrapper>
+    <PostCardWrapper onClick={handleProfileClick} sx={{cursor: "pointer"}}>
       <Box className='postHeader'>
         <Box className='avatarCol'>
           <Avatar className='avatarStyle' src={avatar}>

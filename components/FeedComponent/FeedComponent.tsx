@@ -21,6 +21,7 @@ const FeedComponent = () => {
           username={post.author?.username}
           time={post.createdAt}
           likes={post.likes}
+          userId={post.author?._id}
         />
       ))}
     </FeedComponentWrapper>

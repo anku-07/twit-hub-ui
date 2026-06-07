@@ -7,6 +7,7 @@ export const endpoints = {
   profile: {
     userProfile: 'profile/me',
     editProfile: 'profile/edit-profile',
+    getUserProfile: 'profile',
   },
 
   userPost: {

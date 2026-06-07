@@ -39,10 +39,13 @@ export type PostData = {
   content: string;
   createdAt: string;
   author: {
+    _id: string;
     name: string;
     username: string;
   };
   likes: string[];
+
 };
 
-export {};
+export { };
+
